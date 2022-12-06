@@ -1,7 +1,7 @@
 
 import { App } from "@slack/bolt";
 import { getAnswer } from "./api";
-require('dotenv').config({ path: `.env.${process.env.NODE_ENV || 'local'}` });
+require('dotenv').config();
 
 const app = new App({
   token: process.env.SLACKBOT_TOKEN, //Find in the Oauth  & Permissions tab

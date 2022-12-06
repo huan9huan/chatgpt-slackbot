@@ -1,4 +1,5 @@
 # chatgpt as slack bot
+![chatgpt inside slack](./img/chatgpt-demo-v1.gif)
 
 ## setup .env properties
 ### create a slack app in your workspace
@@ -29,3 +30,13 @@ where
 ![how to copy auth token](./img/token.png)
 put into .env file `CHATGPT_AUTH_TOKEN=<copied token value>`
 - you can use `/set-chatgpt-token` to setup the token for update, e.g. you may need reset the thread, and don't want to reset the bot server.
+
+
+### run the bot app
+```
+git clone
+npm i
+npm run build
+npm run start
+```
+then you can use ChatGPT in Slack.
