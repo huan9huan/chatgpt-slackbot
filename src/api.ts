@@ -55,7 +55,7 @@ export async function getAnswer(question, accessToken): Promise<string> {
         parent_message_id: uuidv4(),
       }),
       onMessage(message) {
-        console.debug("sse message", message);
+        // console.debug("sse message", message);
         if (message === "[DONE]") {
           r(total);
         } else {
