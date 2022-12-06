@@ -1,0 +1,30 @@
+{
+  "name": "chatgpt-slackbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huan9huan/chatgpt-slackbot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huan9huan/chatgpt-slackbot/issues"
+  },
+  "homepage": "https://github.com/huan9huan/chatgpt-slackbot#readme",
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "@slack/bolt": "^3.12.2",
+    "dotenv": "^16.0.3",
+    "eventsource-parser": "^0.0.5",
+    "uuid": "^9.0.0"
+  }
+}
