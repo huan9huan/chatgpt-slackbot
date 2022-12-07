@@ -36,11 +36,13 @@ export async function getAnswer(question, accessToken): Promise<string> {
     fetchSSE("https://chat.openai.com/backend-api/conversation", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
+        "content-type": "application/json",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+        authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify({
         action: "next",
+        // conversation_id: "5aceeec4-0870-4553-97c7-9512b447493c",
         messages: [
           {
             id: uuidv4(),
@@ -55,7 +57,7 @@ export async function getAnswer(question, accessToken): Promise<string> {
         parent_message_id: uuidv4(),
       }),
       onMessage(message) {
-        // console.debug("sse message", message);
+        console.debug("sse message", message);
         if (message === "[DONE]") {
           r(total);
         } else {
