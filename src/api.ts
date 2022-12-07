@@ -50,7 +50,6 @@ export async function getAnswer(question: string, accessToken: string, conversat
     parent_message_id: parentId,
   };
   if(conversationId) {
-    console.log('use conv id ' + conversationId);
     query.conversation_id = conversationId;
   }
   return new Promise((r,j) => {
@@ -63,7 +62,7 @@ export async function getAnswer(question: string, accessToken: string, conversat
       },
       body: JSON.stringify(query),
       onMessage: (message) => {
-        console.debug("sse message", message);
+        // console.debug("sse message", message);
         if (message === "[DONE]") {
           console.log("message answered done", total);
           r({answer: total, conversationId, id});

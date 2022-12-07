@@ -10,6 +10,6 @@ COPY *.json /usr/src/app/
 COPY ./ /usr/src/app/
 
 RUN npm i
+RUN npm run build
 
-CMD npm run build
 CMD npm run start
