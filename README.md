@@ -18,6 +18,7 @@ make Scopes as:
 ![setup command](./img/command.png)
 where
 - `/chatgpt` command: direct send question to ChatGPT
+- `/reset-chatgpt-conversation` command: reset the conversation thread to cleanup the context
 - optional: `/set-chatgpt-token` command can set new Bearer Auth token which are copied from ChatGPT website
 - optional: `/print-chatgpt-token` command can print current Bearer Auth token
 
