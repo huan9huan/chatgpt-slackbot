@@ -36,9 +36,10 @@ const handle = async (question: string, say: Function, channel: string) => {
     let conv = STATES.convesations.find(c => c.channelId === channel);
     if(!conv) {
       conv = {channelId: channel} as Conversation;
+      STATES.convesations = STATES.convesations.concat([conv]);
     }
-    console.debug(`[DEBUG] ${STATES.instanceId}/#${conv.channelId} recv question '${question}'`);
-    const {answer: result, conversationId, id} = await getAnswer(question, STATES.token, conv?.conversationId, conv?.parentId);
+    console.debug(`[DEBUG] ${STATES.instanceId}/#${conv.channelId}.${conv.conversationId} recv question '${question}'`);
+    const {answer: result, conversationId, id} = await getAnswer(question, STATES.token, conv.conversationId, conv.parentId);
     conv.conversationId = conversationId;
     conv.parentId = id;
     console.log(`[INFO] chatgpt-${STATES.instanceId}/#${conv.channelId}.${conversationId} Q: '${question}', A: ${result}`);
