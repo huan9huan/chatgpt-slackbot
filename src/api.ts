@@ -21,6 +21,8 @@ export async function fetchSSE(resource, options) {
   const parser = createParser((event) => {
     if (event.type === "event") {
       onMessage(event.data);
+    } else {
+      console.log(`[WARNING]] Recv other event type ${event.type}`, event);
     }
   });
   for await (const chunk of streamAsyncIterable(resp.body)) {
@@ -29,8 +31,15 @@ export async function fetchSSE(resource, options) {
   }
 }
 
+interface Msg {
+  id: string;
+  content: {
+    parts?: string[];
+  }
+}
 
-export async function getAnswer(question: string, accessToken: string, conversationId?: string, parentId?: string): Promise<{answer: string, conversationId: string; id: string;}> {
+export async function getAnswer(question: string, accessToken: string, conversationId?: string, parentId?: string): Promise<{answer: string, conversationId: string; id: string; finalMsg: Msg}> {
+  let finalMsg: Msg;
   let total = ''; // answer content
   let id = ''; // message id
   parentId = parentId || uuidv4();
@@ -62,15 +71,21 @@ export async function getAnswer(question: string, accessToken: string, conversat
       },
       body: JSON.stringify(query),
       onMessage: (message) => {
+        if(!finalMsg) {
+          console.log("sse first response message as ", message);
+        }
         // console.debug("sse message", message);
         if (message === "[DONE]") {
           console.log("message answered done", total);
-          r({answer: total, conversationId, id});
+          r({answer: total, conversationId, id, finalMsg});
         } else {
           const data = JSON.parse(message);
           const text = data.message?.content?.parts?.[0];
           if (text) {
             total = text;
+          }
+          if(!finalMsg) {
+            finalMsg = data.message;
           }
           conversationId = data.conversation_id || conversationId;
           id = data.message?.id;
