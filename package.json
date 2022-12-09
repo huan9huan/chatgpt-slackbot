@@ -1,10 +1,13 @@
 {
-  "name": "chatgpt-slackbot",
-  "version": "1.0.0",
+  "name": "@huan9huan/chatgpt-slackbot",
+  "version": "0.2.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/app.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist/ && tsc;",
     "start": "node ./dist/index.js"
   },
   "repository": {
