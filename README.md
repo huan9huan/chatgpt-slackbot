@@ -58,4 +58,8 @@ docker build -t chatgpt-slackbot
 docker run -it --rm chatgpt-slackbot
 ```
 
+### Discord support
+<a href='https://discord.gg/WFbxPgqkjF'>
+<img src='./img/discord-icon-svgrepo-com.svg' height='32' /> Join Discord to support
+</a>
 ### Have Fun with ChatGPT inside Slack!
