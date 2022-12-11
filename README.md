@@ -9,6 +9,9 @@
   - each channel (DM, group, public channel etc) give one conversation
   - reset the channel conversation by `/reset-chatgpt-conversation`
 
+## Setup Slack Bot by Web site
+click [Add To Slack](https://chatgpt.slackext.com/)
+
 ## Setup from Zero
 
 Goal: we will step by step to fill the `.env` properties
@@ -62,4 +65,5 @@ docker run -it --rm chatgpt-slackbot
 <a href='https://discord.gg/WFbxPgqkjF'>
 <img src='./img/discord-icon-svgrepo-com.svg' height='32' /> Join Discord to support
 </a>
+
 ### Have Fun with ChatGPT inside Slack!
