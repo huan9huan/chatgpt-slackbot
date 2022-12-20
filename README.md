@@ -1,3 +1,4 @@
+# NOTICE: openai.com has limit its token permisson, so this repo fail to work, will resume this repo when openai.com officially support ChatGPT API
 # chatgpt as slack bot
 ![chatgpt inside slack](./img/chatgpt-demo-v1.gif)
 
